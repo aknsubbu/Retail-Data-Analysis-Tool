@@ -8,7 +8,7 @@ import os
 import json
 
 #  import the data models
-from .dataModels import Address, Cart, Category, Catalog, Checkout, Customer, Dimension, Manufacturer, Payment
+from dataModels import Address, Cart, Category, Catalog, Checkout, Customer, Dimension, Manufacturer, Payment
 
 load_dotenv()
 
@@ -31,11 +31,80 @@ addressCollection = db.addresses
 cartCollection = db.carts
 categoryCollection = db.categories
 customerCollection = db.customers
-catalogCollection = db.catalogs
+catalogCollection = db.catlogs
 checkoutCollection = db.checkouts
 dimensionCollection = db.dimensions
 loginAccessCollection = db.loginaccesses
 manufacturerCollection = db.manufacturers
 paymentCollection = db.payments
 shippingCollection = db.shippings
+
+
+def fetchAll():
+    addressData = addressCollection.find()
+    cartData = cartCollection.find()
+    categoryData = categoryCollection.find()
+    customerData = customerCollection.find()
+    catalogData = catalogCollection.find()
+    checkoutData = checkoutCollection.find()
+    dimensionData = dimensionCollection.find()
+    manufacturerData = manufacturerCollection.find()
+    paymentData = paymentCollection.find()
+    shippingData = shippingCollection.find()
+
+    addresses = []
+    carts = []
+    categories = []
+    customers = []
+    catalogs = []
+    checkouts = []
+    dimensions = []
+    manufacturers = []
+    payments = []
+    shippings = []
+
+    for address in addressData:
+        addresses.append(address)
+
+    for cart in cartData:
+        carts.append(cart)
+
+    for category in categoryData:
+        categories.append(category)
+    
+    for customer in customerData:
+        customers.append(customer)
+    
+    for catalog in catalogData:
+        catalogs.append(catalog)
+    
+    for checkout in checkoutData:
+        checkouts.append(checkout)
+    
+    for dimension in dimensionData:
+        dimensions.append(dimension)
+    
+    for manufacturer in manufacturerData:
+        manufacturers.append(manufacturer)
+    
+    for payment in paymentData:
+        payments.append(payment)
+    
+    for shipping in shippingData:
+        shippings.append(shipping)
+
+
+
+    addressDF = pd.DataFrame(addresses)
+    cartDF = pd.DataFrame(carts)
+    categoryDF = pd.DataFrame(categories)
+    customerDF = pd.DataFrame(customers)
+    catalogDF = pd.DataFrame(catalogs)
+    checkoutDF = pd.DataFrame(checkouts)
+    dimensionDF = pd.DataFrame(dimensions)
+    manufacturerDF = pd.DataFrame(manufacturers)
+    paymentDF = pd.DataFrame(payments)
+
+
+    return addressDF, cartDF, categoryDF, customerDF, catalogDF, checkoutDF, dimensionDF, manufacturerDF, paymentDF
 

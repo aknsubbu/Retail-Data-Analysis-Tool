@@ -1,3 +1,18 @@
+
+"""
+The above code defines various functions for data manipulation and analysis, including descriptive
+statistics, handling missing values, grouping data, merging dataframes, sorting, filtering,
+calculating correlations, adding columns, removing duplicates, applying functions, and utilizing
+numpy functions as tools.
+
+:param data: The `data` parameter in the functions refers to a pandas DataFrame or Series that you
+want to perform operations on. It is the input data that you want to analyze, manipulate, or
+transform using the respective function
+:return: The code defines various functions for data manipulation and analysis using pandas and
+numpy libraries. Additionally, it wraps these functions into QueryEngineTool objects with
+corresponding metadata for each tool. The QueryEngineTool objects allow these functions to be easily
+accessed and utilized within a query engine or similar environment.
+"""
 import numpy as np
 import pandas as pd
 from llama_index.core.tools import QueryEngineTool,ToolMetadata

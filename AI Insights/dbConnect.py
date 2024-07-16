@@ -12,6 +12,8 @@ from dataModels import Address, Cart, Category, Catalog, Checkout, Customer, Dim
 
 load_dotenv()
 
+# This part of the code is establishing a connection to a MongoDB database using the `pymongo` library
+# in Python.
 client  = MongoClient(
     os.getenv("MONGO_URI"),
     server_api = ServerApi("1")
@@ -95,6 +97,9 @@ def fetchAll():
 
 
 
+# The code snippet you provided is creating pandas DataFrames from the lists of data fetched from
+# different MongoDB collections. Each list contains documents retrieved from a specific collection in
+# the database.
     addressDF = pd.DataFrame(addresses)
     cartDF = pd.DataFrame(carts)
     categoryDF = pd.DataFrame(categories)

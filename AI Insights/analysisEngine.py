@@ -16,6 +16,9 @@ from tools import tools
 from prompts import context,instruction_str,address_prompt,cart_prompt,category_prompt,catalog_prompt,checkout_prompt,customer_prompt,dimension_prompt,manufacturer_prompt,payment_prompt
 from hardDataAnalysis import analyze_address_data, analyze_cart_data, analyze_category_data, analyze_catalog_data, analyze_checkout_data, analyze_customer_data, analyze_dimension_data, analyze_manufacturer_data, analyze_payment_data
 
+# The line `Settings.llm = Ollama(model='llama3:8b', request_timeout=600.0)` is setting the `llm`
+# attribute of the `Settings` class to an instance of the `Ollama` class. Here's a breakdown of what
+# each part of this line is doing:
 Settings.llm = Ollama(model = 'llama3:8b',request_timeout=600.0)
 
 llm = Settings.llm
@@ -24,6 +27,8 @@ memory = ChatMemoryBuffer.from_defaults()
 
 
 
+# The `agent = ReActAgent(...)` line of code is creating an instance of the `ReActAgent` class with
+# specific parameters. Here is a breakdown of what each parameter is doing:
 agent = ReActAgent(
     tools=tools,
     memory=memory,

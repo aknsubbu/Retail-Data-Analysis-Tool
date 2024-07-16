@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 # Example functions for data analysis
 
 def analyze_address_data(df_address):
@@ -89,3 +90,17 @@ def analyze_payment_data(df_payment):
     return {
         'Total_Amount_by_Method_Payment': total_amount_by_method
     }
+
+
+"""
+The above functions are designed to analyze different aspects of data related to addresses, carts,
+categories, catalogs, checkouts, customers, dimensions, manufacturers, and payments.
+
+:param df_address: The `df_address` parameter represents a DataFrame containing address data with
+columns like 'State' and 'Line1'. The `analyze_address_data` function processes this DataFrame to
+provide insights such as the count of addresses by state and the average length of the 'Line1'
+column. If you have a
+:return: The functions are returning dictionaries containing the results of the data analysis
+operations. Each dictionary contains specific key-value pairs based on the analysis performed in the
+respective functions. Here are the keys for each function:
+"""

@@ -19,7 +19,7 @@ address_prompt = PromptTemplate(
     The data includes the following tables:
     - Address: Contains information about customer addresses.
 
-    Raw Data:
+    Data:
     {raw_data}
     
     Data after mathematical analysis:
@@ -184,6 +184,24 @@ payment_prompt = PromptTemplate(
     Always follow the instructions and do not deviate from the task...
 
 """)
+
+complete_prompt = PromptTemplate(
+    """
+    As a retail analysis expert, you have been provided with data from a retail company. The data includes information about customers, products, sales, and more. Your task is to analyze the data and provide insights that can help the company make informed decisions and improve its business processes.
+
+    VERIFY ALL SUGGESTIONS WITH DATA AND VISUALIZATIONS.
+
+
+    Data:
+    {analysis_data}
+
+    Instructions:
+    {instruction_str}
+
+    Always follow the instructions and do not deviate from the task...
+
+""")
+
 
 context = """
 Purpose: The purpose of this analysis is to provide insights that can help the retail company make informed decisions and improve its business processes.

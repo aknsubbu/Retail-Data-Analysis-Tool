@@ -91,19 +91,104 @@ def analyze_payment_data(df_payment):
         'Total_Amount_by_Method_Payment': total_amount_by_method
     })
 
+# cross attribute analysis functions -- mathematical
+
+def calculate_aov(df_checkout: pd.DataFrame) -> pd.DataFrame:
+    total_paid = df_checkout['Total_Paid'].sum()
+    number_of_orders = df_checkout.shape[0]
+    aov = pd.DataFrame({'Average_Order_Value': [total_paid / number_of_orders]})
+    return aov
+
+def calculate_conversion_rate(df_cart: pd.DataFrame, df_checkout: pd.DataFrame) -> pd.DataFrame:
+    number_of_carts = df_cart.shape[0]
+    number_of_completed_checkouts = df_checkout.shape[0]
+    conversion_rate = pd.DataFrame({'Conversion_Rate': [(number_of_completed_checkouts / number_of_carts) * 100]})
+    return conversion_rate
+
+def calculate_cart_abandonment_rate(df_cart: pd.DataFrame, df_checkout: pd.DataFrame) -> pd.DataFrame:
+    number_of_carts = df_cart.shape[0]
+    number_of_completed_checkouts = df_checkout.shape[0]
+    abandonment_rate = pd.DataFrame({'Cart_Abandonment_Rate': [((number_of_carts - number_of_completed_checkouts) / number_of_carts) * 100]})
+    return abandonment_rate
+
+def calculate_category_performance(df_catalog: pd.DataFrame, df_checkout: pd.DataFrame) -> pd.DataFrame:
+    df_checkout = df_checkout.merge(df_catalog[['item_id', 'Category_id']], left_on='Cart_ID', right_on='item_id')
+    sales_by_category = df_checkout.groupby('Category_id')['Total_Paid'].sum().reset_index()
+    sales_by_category.columns = ['Category_ID', 'Total_Sales']
+    return sales_by_category
+
+def calculate_average_discount(df_catalog: pd.DataFrame) -> pd.DataFrame:
+    df_catalog['Discount'] = pd.to_numeric(df_catalog['Discount'], errors='coerce')
+    avg_discount = pd.DataFrame({'Average_Discount': [df_catalog['Discount'].mean()]})
+    return avg_discount
+
+def calculate_clv(df_checkout: pd.DataFrame, df_customer: pd.DataFrame) -> pd.DataFrame:
+    total_purchase_value = df_checkout.groupby('User_ID')['Total_Paid'].sum()
+    number_of_purchases = df_checkout.groupby('User_ID').size()
+    customer_lifespan = pd.to_datetime('today') - pd.to_datetime(df_customer['account_creation_date'])
+    avg_purchase_value = total_purchase_value.mean()
+    clv = pd.DataFrame({'Customer_Lifetime_Value': [avg_purchase_value * number_of_purchases.mean() * customer_lifespan.mean().days / 365]})
+    return clv
+
+def calculate_repeat_purchase_rate(df_checkout: pd.DataFrame) -> pd.DataFrame:
+    repeat_customers = df_checkout.groupby('User_ID').size()
+    repeat_purchase_rate = pd.DataFrame({'Repeat_Purchase_Rate': [(repeat_customers[repeat_customers > 1].count() / df_checkout['User_ID'].nunique()) * 100]})
+    return repeat_purchase_rate
+
+def calculate_average_age(df_customer: pd.DataFrame) -> pd.DataFrame:
+    avg_age = pd.DataFrame({'Average_Age': [df_customer['age'].mean()]})
+    return avg_age
+
+def calculate_inventory_turnover_ratio(df_catalog: pd.DataFrame) -> pd.DataFrame:
+    cost_of_goods_sold = df_catalog['price'].sum()  # Placeholder, replace with actual COGS
+    average_inventory = df_catalog['Quantity'].mean()  # Placeholder, replace with actual average inventory
+    turnover_ratio = pd.DataFrame({'Inventory_Turnover_Ratio': [cost_of_goods_sold / average_inventory]})
+    return turnover_ratio
+
+def calculate_product_return_rate(df_checkout: pd.DataFrame) -> pd.DataFrame:
+    total_items_sold = df_checkout.shape[0]  # Placeholder for actual number of items sold
+    returned_items = df_checkout[df_checkout['Complete'] == False].shape[0]  # Placeholder for returned items
+    return_rate = pd.DataFrame({'Product_Return_Rate': [(returned_items / total_items_sold) * 100]})
+    return return_rate
+
+def calculate_rsi(df_checkout: pd.DataFrame, period: int = 14) -> pd.DataFrame:
+    df_checkout['Change'] = df_checkout['Total_Paid'].diff()
+    df_checkout['Gain'] = df_checkout['Change'].apply(lambda x: x if x > 0 else 0)
+    df_checkout['Loss'] = df_checkout['Change'].apply(lambda x: -x if x < 0 else 0)
+    avg_gain = df_checkout['Gain'].rolling(window=period).mean()
+    avg_loss = df_checkout['Loss'].rolling(window=period).mean()
+    rs = avg_gain / avg_loss
+    rsi = pd.DataFrame({'RSI': [100 - (100 / (1 + rs.iloc[-1]))]})
+    return rsi
+
+def calculate_moving_average(df: pd.DataFrame, column: str, window: int) -> pd.DataFrame:
+    df[f'Moving_Avg_{window}'] = df[column].rolling(window=window).mean()
+    return df[[f'Moving_Avg_{window}']]
+
+def calculate_sales_by_state(df_checkout: pd.DataFrame, df_address: pd.DataFrame) -> pd.DataFrame:
+    df_checkout = df_checkout.merge(df_address[['Address_ID', 'State']], left_on='Cart_ID', right_on='Address_ID')
+    sales_by_state = df_checkout.groupby('State')['Total_Paid'].sum().reset_index()
+    sales_by_state.columns = ['State', 'Total_Sales']
+    return sales_by_state
+
+def calculate_population_density(df_customer: pd.DataFrame) -> pd.DataFrame:
+    population_density = df_customer['City'].value_counts().reset_index()
+    population_density.columns = ['City', 'Population_Count']
+    return population_density
+
+
+
 
 """
-The above functions are designed to analyze different aspects of data related to addresses, carts,
-categories, catalogs, checkouts, customers, dimensions, manufacturers, and payments.
+The above functions provide various data analysis and calculation operations on different datasets
+related to e-commerce, such as analyzing address data, cart data, category data, checkout data,
+customer data, dimension data, manufacturer data, payment data, and performing cross-attribute
+mathematical analysis.
 
-:param df_address: The `df_address` parameter represents a DataFrame containing address data with
-columns like 'State' and 'Line1'. The `analyze_address_data` function processes this DataFrame to
-provide insights such as the count of addresses by state and the average length of the 'Line1'
-column. If you have a
-:return: The functions are returning dictionaries containing the results of the data analysis
-operations. Each dictionary contains specific key-value pairs based on the analysis performed in the
-respective functions. Here are the keys for each function:
+:param df_address: The `df_address` parameter refers to a DataFrame containing address data. This
+data could include information such as street addresses, cities, states, postal codes, etc., for
+customers or locations. The functions provided in the code snippet are designed to analyze different
+aspects of the address data, such as counting by
+:return: The functions provided in the code return various data analysis results based on the input
+dataframes. Here is a summary of what each function returns:
 """
-
-
-# TODO - Create cross attribute mathematical analysis functions 

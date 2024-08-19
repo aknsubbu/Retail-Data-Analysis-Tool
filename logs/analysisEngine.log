@@ -1,0 +1,38 @@
+2024-08-13 09:35:39,066 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 09:35:39,069 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 09:35:39,080 - AnalysisLogger - ERROR - Error in Mathematical Single Atrribute Analysis: If using all scalar values, you must pass an index
+2024-08-13 09:37:38,991 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 09:37:38,994 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 09:37:39,006 - AnalysisLogger - ERROR - Error in Mathematical Single Atrribute Analysis: If using all scalar values, you must pass an index
+2024-08-13 09:38:52,108 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 09:38:52,110 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 09:38:52,120 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-13 09:38:52,121 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-13 09:38:52,121 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-13 09:40:11,274 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 09:40:11,275 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 09:40:11,284 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-13 09:40:11,285 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-13 09:40:11,285 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-13 09:56:25,500 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 09:56:25,503 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 09:56:25,514 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-13 09:56:25,514 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-13 09:56:25,514 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-13 10:05:44,078 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 10:05:44,081 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 10:05:44,094 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-13 10:05:44,095 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-13 10:05:44,095 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-13 10:05:54,682 - AnalysisLogger - INFO - Complete Analysis is done in 10.5693199634552 seconds
+2024-08-13 10:10:04,844 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-13 10:10:04,848 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-13 10:10:04,864 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-13 10:10:04,864 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-13 10:10:04,864 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-19 17:54:36,411 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-19 17:54:36,413 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-19 17:54:36,426 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-19 17:54:36,426 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-19 17:54:36,426 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-19 17:55:05,136 - AnalysisLogger - INFO - Complete Analysis is done in 28.69219422340393 seconds

@@ -45,9 +45,10 @@ def analyze_checkout_data(df_checkout):
     # Calculate average Total_Paid
     avg_total_paid = df_checkout['Total_Paid'].mean()
     
+    # Return as DataFrame with an index
     return pd.DataFrame({
-        'Average_Total_Paid': avg_total_paid
-    })
+        'Average_Total_Paid': [avg_total_paid]
+    }, index=['Average_Total_Paid'])
 
 def analyze_customer_data(df_customer):
     df_customer['age'] = pd.to_numeric(df_customer['age'], errors='coerce')
@@ -65,9 +66,10 @@ def analyze_dimension_data(df_dimension):
     df_dimension['Volume'] = df_dimension['Length'] * df_dimension['Breadth'] * df_dimension['Height']
     avg_volume = df_dimension['Volume'].mean()
     
+    # Return as DataFrame with an index
     return pd.DataFrame({
-        'Average_Volume': avg_volume
-    })
+        'Average_Volume': [avg_volume]
+    }, index=['Average_Volume'])
 
 def analyze_manufacturer_data(df_manufacturer):
     # Count by Location
@@ -92,6 +94,8 @@ def analyze_payment_data(df_payment):
     })
 
 # cross attribute analysis functions -- mathematical
+
+# TODO - Implement in the AnalysisEngineV2
 
 def calculate_aov(df_checkout: pd.DataFrame) -> pd.DataFrame:
     total_paid = df_checkout['Total_Paid'].sum()

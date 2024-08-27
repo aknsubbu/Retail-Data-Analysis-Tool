@@ -36,3 +36,22 @@
 2024-08-19 17:54:36,426 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
 2024-08-19 17:54:36,426 - AnalysisLogger - INFO - Agent created for complete analysis
 2024-08-19 17:55:05,136 - AnalysisLogger - INFO - Complete Analysis is done in 28.69219422340393 seconds
+2024-08-19 17:58:37,163 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-19 17:58:37,165 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-19 17:58:37,179 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-19 17:58:37,179 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-19 18:01:45,107 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-19 18:01:45,107 - AnalysisLogger - INFO - Raw data packaged into dictionary
+2024-08-19 18:03:20,181 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-19 18:03:20,182 - AnalysisLogger - INFO - Raw data packaged into dictionary
+2024-08-19 18:03:20,184 - AnalysisLogger - INFO - Raw data QueryEngine created successfully
+2024-08-19 18:03:20,198 - AnalysisLogger - INFO - Analyzed data packaged into dictionary
+2024-08-19 18:03:20,198 - AnalysisLogger - INFO - Analyzed data QueryEngine created successfully
+2024-08-19 18:03:20,198 - AnalysisLogger - INFO - Agent created for complete analysis
+2024-08-19 18:05:14,610 - AnalysisLogger - INFO - Complete Analysis is done in 114.40008091926575 seconds
+2024-08-19 18:14:42,699 - AnalysisLogger - INFO - Data fetched and analyzed successfully
+2024-08-25 15:04:49,085 - AnalysisLogger - INFO - Data fetched successfully
+2024-08-25 15:04:49,088 - AnalysisLogger - INFO - Packaged into dataframe -- RAW
+2024-08-25 15:04:49,102 - AnalysisLogger - INFO - Mathematical Single Atrribute Analysis done successfully
+2024-08-25 15:04:49,103 - AnalysisLogger - INFO - Packaged into dataframe -- ANALYSED
+2024-08-25 15:04:49,103 - AnalysisLogger - INFO - Agent created for complete analysis

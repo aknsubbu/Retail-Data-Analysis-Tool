@@ -244,8 +244,12 @@ class AnalysisAgentNode:
         logger.info(f'Complete Analysis is done in {compute_time} seconds')
         return response,compute_time
 
+    def outputRAWDATA(self):
+        return self.master_raw_df
+    
+    def outputANALYSEDDATA(self):
+        return self.master_analysed_df
 
 
 #testing 
 testNode = AnalysisAgentNode()
-print(testNode.complete_analysis())
